@@ -1,0 +1,17 @@
+{
+  "name": "wedding-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^3.0.3",
+    "webpack": "^4.17.1",
+    "webpack-dev-server": "^3.1.7"
+  }
+}

@@ -1,0 +1,23 @@
+{
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"package-lock.json",
+				"wedding-ui.sublime-*"
+			],
+			"folder_exclude_patterns":
+			[
+				"node_modules"
+			],
+			"path": "."
+		}
+	],
+	"settings": {
+		"tab_size": 4,
+		"translate_tabs_to_spaces": true,
+		"ensure_newline_at_eof_on_save": true,
+		"trim_trailing_white_space_on_save": true
+	}
+}
