@@ -18,12 +18,14 @@ import { render } from 'react-dom';
 
 console.log('client', client);
 
-import { First } from './First';
+import './main.less';
+
+import {Routes} from './Routes';
 
 render(
     <ApolloProvider client={client}>
-        <h1>Hello!!</h1>
-        <First></First>
+        <h1 className="main-page-title">Välkommen</h1>
+        <Routes />,
     </ApolloProvider>,
     document.getElementById('root'),
 );
