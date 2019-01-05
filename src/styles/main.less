@@ -21,19 +21,25 @@ body {
 
 .main-page-title {
     text-align: center;
-    margin-bottom: 60px;
     margin-top: 0;
     font-size: 35px;
     color: #444;
 }
 
+.main-page-subheader {
+    text-align: center;
+    font-family: "Open Sans Light";
+    margin-bottom: 70px;
+}
+
 .page-wrapper {
-    width: 300px;
+    width: 1000px;
     margin: auto;
     background: white;
     padding: 20px 40px;
     border-radius: 5px;
     background: transparent;
+    min-height: 350px;
 
     &:after {
         content: "";
@@ -43,12 +49,12 @@ body {
         background: url("../../assets/images/background.jpeg");
         background-repeat: no-repeat;
         background-attachment: fixed;
-        background-size: 1000px;
+        background-size: 1100px;
         background-position: center;
         position: absolute;
         top: 0;
         left: 0;
-        opacity: 0.3;
+        opacity: 0.2;
         z-index:-1;
     }
 }
