@@ -1,0 +1,93 @@
+
+
+@primary-font: "Open Sans";
+
+/////////////////
+/// FLEX STUFF //
+/////////////////
+
+.flex(@n) {
+    -moz-box-flex: @n;
+    -webkit-box-flex: @n;   /* OLD - iOS 6-, Safari 3.1-6 */
+    -webkit-flex: @n;       /* Safari 6.1+. iOS 7.1+, BB10 */
+    -ms-flex: @n;           /* IE 10 */
+    flex: @n;
+}
+
+.display-flex() {
+    display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: -moz-box;
+    display: flex;
+}
+
+.align-items(@param) {
+    -webkit-align-items: @param;
+    -webkit-box-align: @param;
+    -ms-flex-align: @param;
+    -moz-box-align: @param;
+    align-items: @param;
+}
+
+.flex-grow(@n) {
+    -ms-flex-positive: @n;
+    flex-grow: @n;
+}
+
+.flex-shrink(@n) {
+    -ms-flex-negative: @n;
+    flex-shrink: @n;
+}
+
+.flex-wrap(@n) {
+    -ms-flex-wrap: @n;
+    flex-wrap: @n;
+}
+
+.order(@order) {
+    -webkit-box-ordinal-group: @order;
+    -moz-box-ordinal-group: @order;
+    -ms-flex-order: @order;
+    -webkit-order: @order;
+    order: @order;
+}
+
+.justify-content(@value) {
+    -webkit-box-pack: @value;
+    -ms-flex-pack: @value;
+    justify-content: @value;
+}
+
+.flex-direction-column() {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.flex-direction-row() {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.flex-direction-column-reverse() {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+}
+
+.flex-direction-row-reverse() {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+}
+
+.flex-basis(@value) {
+    -ms-flex-preferred-size: @value;
+    flex-basis: @value;
+}

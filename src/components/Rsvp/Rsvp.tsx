@@ -22,8 +22,9 @@ const GET_INVITES = gql`
 export class Rsvp extends React.Component {
 
     public render() {
+        console.log('rsvp');
         return (
-            <Query query={GET_INVITES}>
+            <Query query={GET_INVITES} fetchPolicy="network-only">
                 {({ loading, error, data }) => {
                     if (loading) return 'Loading...';
                     if (error) return `Error! ${error.message}`;
@@ -32,7 +33,8 @@ export class Rsvp extends React.Component {
 
                     return (
                         <div className="rsvp-wrapper">
-                            <h1 className="code">{ me.code }</h1>
+                            <h2>Famlijen Jöns</h2>
+                            {/*<h2 className="code">{ me.code }</h2>*/}
                             <ul>
                                 {me.invitees.map((invitee: any) => (
                                     <li key={invitee.id}>

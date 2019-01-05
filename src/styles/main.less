@@ -1,0 +1,93 @@
+
+@import "mixins";
+
+html {
+    font-family: @primary-font;
+    font-size: 14px;
+    color: #333;
+}
+
+body {
+    .display-flex();
+    .flex-direction-column();
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+#root {
+    .display-flex();
+    min-height: 100vh;
+}
+
+.main-page-title {
+    text-align: center;
+    margin-bottom: 60px;
+    margin-top: 0;
+    font-size: 35px;
+    color: #444;
+}
+
+.page-wrapper {
+    width: 300px;
+    margin: auto;
+    background: white;
+    padding: 20px 40px;
+    border-radius: 5px;
+    background: transparent;
+
+    &:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: url("../../assets/images/background.jpeg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 1000px;
+        background-position: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.3;
+        z-index:-1;
+    }
+}
+
+
+h1 {
+    font-family: Countryside;
+    line-height: 1.5;
+    // letter-spacing: -.02em;
+}
+
+@font-face {
+    font-family: 'Countryside';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: local('Countryside'), local('Countryside'), url('../../assets/fonts/Countryside.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Open Sans Light';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: local('Open Sans Light'), local('OpenSans-Light'), url('../../assets/fonts/OpenSans-Light.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Open Sans Regular'), local('OpenSans-Regular'), url('../../assets/fonts/OpenSans-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Open Sans SemiBold';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url('../../assets/fonts/OpenSans-SemiBold.woff') format('woff');
+}
