@@ -26,14 +26,14 @@ export class Rsvp extends React.Component {
         return (
             <Query query={GET_INVITES} fetchPolicy="network-only">
                 {({ loading, error, data }) => {
-                    if (loading) return 'Loading...';
+                    {if (loading) return '';}
                     if (error) return `Error! ${error.message}`;
 
                     const { me } = data;
 
                     return (
                         <div className="rsvp-wrapper">
-                            <h2>Famlijen Jöns</h2>
+                            <h2>Famlijen { me.code }</h2>
                             {/*<h2 className="code">{ me.code }</h2>*/}
                             <ul>
                                 {me.invitees.map((invitee: any) => (

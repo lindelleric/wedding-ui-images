@@ -3,20 +3,13 @@ import React from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 
+import './Login.less';
+
 const AUTHENTICATE = gql`
     mutation Auth($invitationCode: String!) {
         authenticate(invitationCode: $invitationCode)
     }
 `
-
-const ADD_TODO = gql`
-  mutation AddTodo($type: String!) {
-    addTodo(type: $type) {
-      id
-      type
-    }
-  }
-`;
 
 // @observer
 export class Login extends React.Component<any, any> {
@@ -56,7 +49,7 @@ export class Login extends React.Component<any, any> {
         return (
             <Mutation mutation={AUTHENTICATE}>
                 {(authenticate, { data }) => (
-                    <div>
+                    <div className="login-wrapper">
                         <form onSubmit={event => {
                                 event.preventDefault();
                                 authenticate({ variables: { invitationCode: this.state.code } }).then((response) => this.onSuccessfulLogin(response));
