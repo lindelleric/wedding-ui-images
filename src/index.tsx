@@ -8,11 +8,14 @@ import { ApolloProvider } from 'react-apollo';
      uri: 'http://localhost:8080/graphql',
      credentials: 'include', // TODO: set to 'same-origin' when backend is on the same domain as frontend
      request: async (operation) => {
-         operation.setContext({
-             headers: {
-                 authorization: `Bearer ${localStorage.getItem('token')}`
-             }
-         })
+         const token = localStorage.getItem('token');
+         if (token) {
+             operation.setContext({
+                 headers: {
+                     authorization: `Bearer ${token}`
+                 }
+             });
+         }
      }
  });
 
