@@ -53,6 +53,13 @@ export class Nav extends React.Component {
                     </li>
                     <li>
                         <UISrefActive class="active">
+                            <UISref to="onskelista">
+                                <a>Önskalista</a>
+                            </UISref>
+                        </UISrefActive>
+                    </li>
+                    <li>
+                        <UISrefActive class="active">
                             <UISref to="toastmaster">
                                 <a>Toastmaster</a>
                             </UISref>

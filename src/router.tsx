@@ -11,6 +11,7 @@ import { TidProgram } from './components/infoViews/TidProgram/TidProgram';
 import { PraktiskInfo } from './components/infoViews/PraktiskInfo/PraktiskInfo';
 import { Kladkod } from './components/infoViews/Kladkod/Kladkod';
 import { Overnattning } from './components/infoViews/Overnattning/Overnattning';
+import { Onskelista } from './components/infoViews/Onskelista/Onskelista';
 import { Toastmaster } from './components/infoViews/Toastmaster/Toastmaster';
 
 const router = new UIRouterReact();
@@ -55,6 +56,11 @@ const states = [
     name: 'overnattning',
     url: '/overnattning',
     component: Overnattning,
+  },
+  {
+    name: 'onskelista',
+    url: '/onskelista',
+    component: Onskelista,
   },
   {
     name: 'toastmaster',
