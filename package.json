@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/index.ts --type-check",
+    "start": "ts-node src/index.tsx --type-check",
     "build": "webpack",
-    "watch": "webpack-dev-server --hot"
+    "watch": "webpack-dev-server --hot",
+    "deploy": "git pull && docker-compose up -d --build"
   },
   "keywords": [],
   "author": "",
@@ -33,7 +34,7 @@
   },
   "dependencies": {
     "@uirouter/react": "^0.8.7",
-    "apollo-boost": "^0.1.15",
+    "apollo-boost": "^0.1.23",
     "express": "^4.16.4",
     "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",

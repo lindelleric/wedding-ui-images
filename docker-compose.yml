@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+    wedding-ui:
+        container_name: wedding-ui
+        build: ./
+        ports:
+          - 8095:80
+        restart: unless-stopped

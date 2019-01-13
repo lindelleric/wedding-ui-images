@@ -13,7 +13,7 @@ const config = {
     },
     devtool: 'source-map',
     resolve: {
-        extensions: ['.js', '.json', '.ts', '.tsx'],
+        extensions: ['.mjs', '.js', '.json', '.ts', '.tsx'], // .mjs fixes https://github.com/graphql/graphql-js/issues/1272
     },
     module: {
         rules: [
@@ -47,6 +47,11 @@ const config = {
                 query: {
                     name: 'assets/fonts/[name].[ext]'
                 }
+            },
+            { // fixes https://github.com/graphql/graphql-js/issues/1272
+                test: /\.mjs$/,
+                include: /node_modules/,
+                type: "javascript/auto",
             }
         ],
     },
@@ -57,7 +62,7 @@ const config = {
     ],
     devServer: {
         proxy: {
-          '/graphql': 'http://localhost:4000'
+          '/graphql': 'http://192.168.1.146:4000'
         },
         publicPath: '/',
         historyApiFallback: true,

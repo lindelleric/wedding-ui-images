@@ -5,7 +5,7 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 
  const client = new ApolloClient({
-     uri: 'http://localhost:8080/graphql',
+     uri: '/graphql',
      credentials: 'include', // TODO: set to 'same-origin' when backend is on the same domain as frontend
      request: async (operation) => {
          const token = localStorage.getItem('token');
