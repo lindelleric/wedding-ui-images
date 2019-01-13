@@ -7,7 +7,8 @@
     "start": "ts-node src/index.tsx --type-check",
     "build": "webpack",
     "watch": "webpack-dev-server --hot",
-    "deploy": "git pull && docker-compose up -d --build"
+    "deploy": "git pull && yarn run docker",
+    "docker": "docker-compose up -d --build"
   },
   "keywords": [],
   "author": "",

@@ -29,7 +29,7 @@ const states = [
   },
   {
     name: 'login',
-    url: '/login',
+    url: '/code',
     component: Login,
   },
   {
