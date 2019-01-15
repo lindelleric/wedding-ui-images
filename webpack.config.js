@@ -62,7 +62,7 @@ const config = {
     ],
     devServer: {
         proxy: {
-          '/graphql': 'http://192.168.1.146:4000'
+          '/graphql': 'http://localhost:4000'
         },
         publicPath: '/',
         historyApiFallback: true,
