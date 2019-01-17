@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './styles/main.less';
+import './styles/form/index.less'
 import './components/infoViews/info.less';
 import 'normalize.css';
 

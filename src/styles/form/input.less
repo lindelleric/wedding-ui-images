@@ -1,0 +1,42 @@
+@import "../mixins";
+
+// input[type="text"],
+// input[type="number"],
+// input[type="email"],
+// input[type="date"],
+// input[type="password"],
+// input[type="search"],
+input,
+textarea {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    box-shadow: 0 0 0 1px @input-default-color;
+    border-radius: 3px;
+    cursor: text;
+    .transition(all 0.3s);
+
+    /* Hover, active */
+    &:hover, &:active {
+        box-shadow: 0 0 0 1px fade(@input-border-color, 70%);
+    }
+
+    /* Focus */
+    &:focus {
+        box-shadow: 0 0 0 2px fade(@input-border-color, 100%);
+        color: rgba(51, 51, 51, 1);
+    }
+
+    /* Invalid */
+    &:invalid,
+    &.ng-invalid {
+        &:not(.ng-untouched) {
+            box-shadow: 0 0 0 1px @input-required-color;
+
+            &:focus {
+                box-shadow: 0 0 0 2px @input-required-color;
+            }
+        }
+    }
+}

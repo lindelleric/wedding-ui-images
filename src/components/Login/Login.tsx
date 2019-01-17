@@ -24,7 +24,7 @@ export class Login extends React.Component<any, any> {
        console.log(event.target.value);
        this.setState({
            code: event.target.value
-       })
+       });
     }
 
     private onSuccessfulLogin(response: any) {
@@ -48,16 +48,28 @@ export class Login extends React.Component<any, any> {
 
         return (
             <Mutation mutation={AUTHENTICATE}>
-                {(authenticate, { data }) => (
+                {(authenticate, { data, error }) => (
                     <div className="login-wrapper">
                         <form onSubmit={event => {
                                 event.preventDefault();
                                 authenticate({ variables: { invitationCode: this.state.code } }).then((response) => this.onSuccessfulLogin(response));
                             }}
                         >
-                            <input type="text" name="code" placeholder="Kod" value={this.state.code} onChange={this.updateCode}/>
+                            <input type="text" className="code-input" name="code" placeholder="Skriv in er personliga kod här" value={this.state.code} onChange={this.updateCode}/>
 
-                            <button type="submit">Logga in</button>
+                            <button type="submit" className="login-button" disabled={!this.state.code}>Logga in</button>
+
+                            {
+                                error && error.graphQLErrors.map((error, i) => {
+                                    switch (error.name) {
+                                        case 'CodeNotFoundError':
+                                            return <p className="login-error" key={i}>Koden finns inte</p>;
+                                        default:
+                                            return <p className="login-error" key={i}>Något fel har inträffat</p>;
+                                    }
+                                })
+                            }
+
                         </form>
                     </div>
                 )}

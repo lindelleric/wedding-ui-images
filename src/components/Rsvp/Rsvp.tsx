@@ -20,7 +20,6 @@ const GET_INVITES = gql`
 `;
 
 export class Rsvp extends React.Component {
-
     public render() {
         console.log('rsvp');
         return (

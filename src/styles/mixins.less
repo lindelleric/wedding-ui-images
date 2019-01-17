@@ -1,6 +1,25 @@
 
 
 @primary-font: "Open Sans";
+@open-sans-semibold: "Open Sans Semibold";
+
+@input-border-color: #ffaf87;
+@input-default-color: fade(#000000, 30%);
+@input-required-color: red;
+
+.transition (@transition: 0) when not (@transition = 0) {
+    -webkit-transition: @transition;
+    -moz-transition: @transition;
+    -ms-transition: @transition;
+    -o-transition: @transition;
+    transition: @transition;
+}
+
+.box-shadow (@string) {
+    -webkit-box-shadow: @string;
+    -moz-box-shadow: @string;
+    box-shadow: @string;
+}
 
 /////////////////
 /// FLEX STUFF //

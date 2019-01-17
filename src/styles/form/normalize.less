@@ -1,0 +1,53 @@
+@import "../mixins";
+
+// input[type="text"],
+// input[type="number"],
+// input[type="email"],
+// input[type="date"],
+// input[type="password"],
+// input[type="search"],
+input,
+textarea,
+button {
+    outline: none;
+    border: none;
+
+    /* Focus, Dropdown open */
+    &:focus,
+    &:hover,
+    &:active {
+        outline: none;
+        border: none;
+    }
+
+    &:focus {
+        outline: none;
+        border: none;
+
+        &::-webkit-input-placeholder { /* WebKit browsers */
+            color: transparent !important;
+        }
+
+        &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            color: transparent !important;
+        }
+
+        &::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color: transparent !important;
+        }
+
+        &:-ms-input-placeholder { /* Internet Explorer 10+ */
+            color: transparent !important;
+        }
+    }
+}
+
+// button {
+//     outline: none;
+
+//     &:focus,
+//     &:hover,
+//     &:active {
+//         outline: none;
+//     }
+// }

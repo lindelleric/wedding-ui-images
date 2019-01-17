@@ -1,0 +1,31 @@
+@import "../mixins";
+
+
+button {
+    background: none;
+    border-radius: 3px;
+    background-color: lighten(@input-border-color, 5%);
+    color: #FFF;
+    cursor: pointer;
+    font-family: @open-sans-semibold !important;
+
+    .transition(all 0.3s);
+
+    /* Hover, active */
+    &:hover {
+        background-color: @input-border-color;
+    }
+
+    &:active {
+        .box-shadow(inset 0 1px 3px 0 rgba(0,0,0,0.3));
+    }
+
+    /* Focus */
+    &:focus {
+    }
+
+    &:disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}
