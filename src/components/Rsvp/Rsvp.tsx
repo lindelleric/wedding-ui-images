@@ -2,6 +2,8 @@ import React from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 
+import { Invitee } from './Invitee';
+
 import './Rsvp.less';
 
 const GET_INVITES = gql`
@@ -9,6 +11,7 @@ const GET_INVITES = gql`
         me {
             id
             code
+            title
             invitees {
                 id
                 firstName
@@ -32,15 +35,9 @@ export class Rsvp extends React.Component {
 
                     return (
                         <div className="rsvp-wrapper">
-                            <h2>Famlijen { me.code }</h2>
+                            <h2>{ me.title }</h2>
                             {/*<h2 className="code">{ me.code }</h2>*/}
-                            <ul>
-                                {me.invitees.map((invitee: any) => (
-                                    <li key={invitee.id}>
-                                        <p>{ `${invitee.firstName} ${invitee.lastName}: ${invitee.inviteStatus}` }</p>
-                                    </li>
-                                ))}
-                            </ul>
+                            { me.invitees.map((invitee, i) => <Invitee invitee={invitee} key={i}></Invitee> ) }
                         </div>
                     );
                 }}

@@ -37,15 +37,6 @@ export class Login extends React.Component<any, any> {
     }
 
     public render() {
-        // return (
-        //     <div>
-        //         <h1>login</h1>
-
-        //         <input type="text" name="code" placeholder="Kod" value={this.state.code} onChange={this.updateCode}/>
-
-        //     </div>
-        // )
-
         return (
             <Mutation mutation={AUTHENTICATE}>
                 {(authenticate, { data, error }) => (
