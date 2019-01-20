@@ -21,7 +21,6 @@ export class Login extends React.Component<any, any> {
     }
 
     private updateCode = (event: any) => {
-       console.log(event.target.value);
        this.setState({
            code: event.target.value
        });
@@ -29,7 +28,6 @@ export class Login extends React.Component<any, any> {
 
     private onSuccessfulLogin(response: any) {
         const { authenticate } = response.data;
-        console.log(authenticate);
         localStorage.setItem('token', authenticate);
 
         const { transition } = this.props;

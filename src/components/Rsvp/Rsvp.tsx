@@ -27,7 +27,7 @@ export class Rsvp extends React.Component {
         console.log('rsvp');
         return (
             <Query query={GET_INVITES} fetchPolicy="network-only">
-                {({ loading, error, data }) => {
+                {({ loading, error, data, refetch }) => {
                     {if (loading) return '';}
                     if (error) return `Error! ${error.message}`;
 
@@ -36,8 +36,10 @@ export class Rsvp extends React.Component {
                     return (
                         <div className="rsvp-wrapper">
                             <h2>{ me.title }</h2>
-                            {/*<h2 className="code">{ me.code }</h2>*/}
-                            { me.invitees.map((invitee, i) => <Invitee invitee={invitee} key={i}></Invitee> ) }
+
+                            <p>0 / 5 har svarat</p>
+
+                            { me.invitees.map((invitee, i) => <Invitee invitee={invitee} refetch={refetch} key={i}></Invitee> ) }
                         </div>
                     );
                 }}
