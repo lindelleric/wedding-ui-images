@@ -13,7 +13,7 @@ interface InviteeType {
 
 interface InviteeProps {
     invitee: InviteeType;
-    refetch: MutationFn;
+    refetch: () => void;
 }
 
 interface InviteeState {

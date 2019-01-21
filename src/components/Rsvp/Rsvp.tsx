@@ -39,7 +39,7 @@ export class Rsvp extends React.Component {
 
                             <p>0 / 5 har svarat</p>
 
-                            { me.invitees.map((invitee, i) => <Invitee invitee={invitee} refetch={refetch} key={i}></Invitee> ) }
+                            { me.invitees.map((invitee, i) => <Invitee invitee={invitee} refetch={() => refetch()} key={i}></Invitee> ) }
                         </div>
                     );
                 }}
