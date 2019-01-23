@@ -31,7 +31,8 @@ export class Login extends React.Component<any, any> {
         localStorage.setItem('token', authenticate);
 
         const { transition } = this.props;
-        transition.router.stateService.go('rsvp', {}, { reload: true });
+        transition.router.stateService.go('root', {}, { reload: true });
+        this.props.refetch();
     }
 
     public render() {

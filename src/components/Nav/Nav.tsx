@@ -4,8 +4,9 @@ import { UISrefActive, UISref } from '@uirouter/react';
 
 import './nav.less';
 
-export class Nav extends React.Component {
+export class Nav extends React.Component<any> {
     public render() {
+        console.log(this.props);
         return (
             <div className="nav-wrapper">
                 <ul>
