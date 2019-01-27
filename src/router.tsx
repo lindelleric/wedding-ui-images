@@ -13,7 +13,10 @@ import { Kladkod } from './components/infoViews/Kladkod/Kladkod';
 import { Overnattning } from './components/infoViews/Overnattning/Overnattning';
 import { Onskelista } from './components/infoViews/Onskelista/Onskelista';
 import { Toastmaster } from './components/infoViews/Toastmaster/Toastmaster';
+import { Admin } from './components/Admin/Admin';
 import { rootState } from './App';
+
+import { Invitation } from './types';
 
 import { apolloClient } from './';
 import gql from 'graphql-tag';
@@ -73,6 +76,11 @@ const states = [
         component: Toastmaster,
     },
     {
+        name: 'admin',
+        url: '/admin',
+        component: Admin,
+    },
+    {
         name: 'notFound',
         url: '/404',
         component: () => <h1>Sidan hittades inte</h1>,
@@ -90,23 +98,36 @@ const GET_INVITES = gql`
     {
         me {
             id
+            role
         }
     }
 `;
 
 router.transitionService.onBefore({}, (transition) => {
     const stateService = transition.router.stateService;
-    const to = transition.to();
+    const { name } = transition.to();
 
     // Allow login
-    if (to.name === 'login') {
+    if (name === 'login') {
         return true;
     }
 
-    return apolloClient.query({
+    return apolloClient.query<{ me: Invitation }>({
             query: GET_INVITES
         })
-        .then(() => true)
+        .then(({ data }) => {
+            const { me } = data;
+
+            if (name === 'admin') {
+                if (me.role !== 'ADMIN') {
+                    return stateService.target('403');
+                } else {
+                    return true;
+                }
+            }
+
+            return true;
+        })
         .catch(() => stateService.target('login'));
 });
 

@@ -24,6 +24,7 @@ const GET_INVITES = gql`
             code
             title
             note
+            role
             invitees {
                 id
                 firstName
@@ -49,16 +50,16 @@ export class App extends React.Component<any, any> {
                     return (
                         <div className="page-wrapper">
 
-                            { !loading && !error && data ? <Nav invitation={invitation}/> : null }
+                            { !loading && !error && invitation ? <Nav invitation={invitation}/> : null }
 
                             <h1 className="main-page-title">Eric &#91;Malin</h1>
-                            { loading ? <p className="main-page-loading">Loading...</p> : null }
+                            { loading ? <p className="main-page-loading">Laddar...</p> : null }
 
                             { !loading && !error && data ? <h3 className="main-page-subheader">11 Maj 2019 | Köpmansmagasinet Smygehamn | 15:00 </h3> : null }
 
                             <UIView render={(Component, props) =>
                               <Component {...props} invitation={invitation} refetch={refetch}/>
-                            }/> {/* add invitation */}
+                            }/>
                         </div>
                     )
                 }}

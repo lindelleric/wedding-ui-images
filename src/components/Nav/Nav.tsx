@@ -2,11 +2,17 @@ import React from 'react';
 
 import { UISrefActive, UISref } from '@uirouter/react';
 
+import { Invitation } from './../../types';
+
 import './nav.less';
 
-export class Nav extends React.Component<any> {
-    public render() {
+export class Nav extends React.Component<{ invitation: Invitation }> {
+    public isAdmin() {
         console.log(this.props);
+        return this.props.invitation && this.props.invitation.role === 'ADMIN';
+    }
+
+    public render() {
         return (
             <div className="nav-wrapper">
                 <ul>
@@ -66,6 +72,17 @@ export class Nav extends React.Component<any> {
                             </UISref>
                         </UISrefActive>
                     </li>
+                    {
+                        this.isAdmin() ? (
+                            <li>
+                                <UISrefActive class="active">
+                                    <UISref to="admin">
+                                        <a>Admin</a>
+                                    </UISref>
+                                </UISrefActive>
+                            </li>
+                        ) : null
+                    }
                 </ul>
             </div>
         )

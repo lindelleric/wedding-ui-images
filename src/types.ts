@@ -3,7 +3,7 @@ export interface Invitation {
     code: string;
     note: string;
     title: string;
-    role: string;
+    role: 'ADMIN' | null;
     invitees: Invitee[];
     invitation: Invitation;
 }
