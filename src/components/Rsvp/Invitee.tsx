@@ -4,12 +4,7 @@ import { Mutation, MutationFn } from 'react-apollo';
 
 import './Invitee.less';
 
-interface InviteeType {
-    id?: string;
-    firstName?: string;
-    lastName?: string;
-    inviteStatus?: boolean;
-}
+import { Invitee as InviteeType } from './../../types';
 
 interface InviteeProps {
     invitee: InviteeType;
