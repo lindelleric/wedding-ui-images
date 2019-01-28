@@ -25,9 +25,13 @@ export class Rsvp extends React.Component<{invitation: Invitation}, any> {
                 <div className="rsvp-wrapper">
                     <h2>{ this.props.invitation.title }</h2>
 
-                    <p>{ this.getAwnseredCount() } / { this.getInviteeCount() } har svarat</p>
+                    <p className="summery">{ this.getAwnseredCount() } / { this.getInviteeCount() } har svarat</p>
 
-                    { this.props.invitation.invitees.map((invitee, i) => <Invitee invitee={invitee} key={i}></Invitee> ) }
+                    <table className="invitee-table">
+                        <tbody>
+                            { this.props.invitation.invitees.map((invitee, i) => <Invitee invitee={invitee} key={i}></Invitee> ) }
+                        </tbody>
+                    </table>
                 </div>
             ) : null
         );

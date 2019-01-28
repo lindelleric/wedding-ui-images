@@ -68,7 +68,7 @@ export class App extends React.Component<any, any> {
     }
 }
 
- export const rootState = {
+export const rootState = {
     name: 'root',
     url: '/',
     redirectTo: 'rsvp'

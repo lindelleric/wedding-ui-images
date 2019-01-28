@@ -1,10 +1,21 @@
+@import "./../../styles/mixins.less";
 
 .rsvp-wrapper {
     text-align: center;
-    ul {
-        padding: 0;
-        margin: 0;
-        list-style-type: none;
+
+    .summery {
+        margin-top: 30px;
     }
 
+    .invitee-table {
+        margin-top: 20px;
+        .display-flex;
+        .justify-content(center);
+
+        tr {
+            td {
+                padding: 5px 0;
+            }
+        }
+    }
 }

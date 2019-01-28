@@ -35,12 +35,7 @@ export class Invitee extends React.Component<InviteeProps, InviteeState> {
         };
     }
 
-    private onSetStatus(response: any) {
-        console.log(response);
-    }
-
     private onSetStatusClick(inviteStatus: boolean, setStatus: MutationFn) {
-        console.log(inviteStatus);
         setStatus({
             variables: {
                 inviteeId: this.state.invitee.id,
@@ -50,7 +45,6 @@ export class Invitee extends React.Component<InviteeProps, InviteeState> {
             const { invitee } = this.state;
             invitee.inviteStatus = response.data.setInviteStatus.inviteStatus;
             this.setState({invitee});
-            console.log(response);
         });
     }
 
@@ -58,10 +52,10 @@ export class Invitee extends React.Component<InviteeProps, InviteeState> {
         return (
              <Mutation mutation={SETSTATUS}>
                 {(setStatus, { data, error, loading }) => (
-                    <div className="invitee-wrapper">
-                        <span>{`${ this.state.invitee.firstName } ${ this.state.invitee.lastName }`}</span>
+                    <tr className="invitee-wrapper">
+                        <td className="invitee-name">{`${ this.state.invitee.firstName } ${ this.state.invitee.lastName }`}</td>
 
-                        <span className="actions-wrapper">{
+                        <td className="actions-wrapper">{
                             this.state.invitee.inviteStatus === null ?
                                 (<>
                                     <button className="margin-right" onClick={e => this.onSetStatusClick(true, setStatus)}>Kommer</button>
@@ -73,8 +67,8 @@ export class Invitee extends React.Component<InviteeProps, InviteeState> {
                                         this.state.invitee.inviteStatus ? 'Kommer' : 'Kommer inte'
                                     }</p>
                                 </>)
-                        }</span>
-                    </div>
+                        }</td>
+                    </tr>
                 )}
             </Mutation>
         );
