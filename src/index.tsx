@@ -7,6 +7,8 @@ import { ApolloProvider } from 'react-apollo';
 
 import { UIRouter, UIView } from '@uirouter/react';
 
+import 'font-awesome/css/font-awesome.css'
+
 export const apolloClient = new ApolloClient({
      uri: '/graphql',
      credentials: 'include', // TODO: set to 'same-origin' when backend is on the same domain as frontend
