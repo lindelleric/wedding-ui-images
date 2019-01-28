@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Invitee } from './Invitee';
+import { Note } from './Note';
 
 import { Invitation } from './../../types';
 
@@ -25,13 +26,21 @@ export class Rsvp extends React.Component<{invitation: Invitation}, any> {
                 <div className="rsvp-wrapper">
                     <h2>{ this.props.invitation.title }</h2>
 
-                    <p className="summery">{ this.getAwnseredCount() } / { this.getInviteeCount() } har svarat</p>
+                    {
+                        this.getAwnseredCount() === this.getInviteeCount() ? (
+                            <p className="summery">Alla har svarat <i className="fa fa-check"></i></p>
+                        ) : (
+                            <p className="summery">{ this.getAwnseredCount() } / { this.getInviteeCount() } har svarat</p>
+                        )
+                    }
 
                     <table className="invitee-table">
                         <tbody>
                             { this.props.invitation.invitees.map((invitee, i) => <Invitee invitee={invitee} key={i}></Invitee> ) }
                         </tbody>
                     </table>
+
+                    <Note invitation={this.props.invitation} />
                 </div>
             ) : null
         );
