@@ -44,7 +44,7 @@ export class InvitationRow extends React.Component<Props, any> {
                                     removeInvitation({
                                         variables: { invitationId: invitation.id }
                                     }).then(() => this.props.refetch());
-                                }}><i className="fa fa-times"></i></button>
+                                }} disabled={invitation.role === 'ADMIN'}><i className="fa fa-times"></i></button>
                             )}
                         </Remove.Component>
                     </td>
