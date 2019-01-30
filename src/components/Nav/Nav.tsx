@@ -2,11 +2,13 @@ import React from 'react';
 
 import { UISrefActive, UISref } from '@uirouter/react';
 
-import { Invitation } from './../../types';
+// import { Invitation } from './../../types';
+
+import { Current } from './../../generated/graphql';
 
 import './nav.less';
 
-export class Nav extends React.Component<{ invitation: Invitation }> {
+export class Nav extends React.Component<{ invitation: Current.Invitation }> {
     public isAdmin() {
         console.log(this.props);
         return this.props.invitation && this.props.invitation.role === 'ADMIN';

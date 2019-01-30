@@ -4,15 +4,15 @@ import { Mutation, MutationFn } from 'react-apollo';
 
 import './Invitee.less';
 
-import { Invitee as InviteeType } from './../../types';
+import { Current } from'./../../generated/graphql';
 
 interface InviteeProps {
-    invitee: InviteeType;
+    invitee: Current.Invitee;
     // refetch: () => void;
 }
 
 interface InviteeState {
-    invitee: InviteeType;
+    invitee: Current.Invitee;
 }
 
 const SETSTATUS = gql`

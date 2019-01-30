@@ -25,6 +25,7 @@ body {
 .main-page-title {
     text-align: center;
     margin-top: 0;
+    margin-bottom: 20px;
     font-size: 35px;
     color: #444;
 }
@@ -32,7 +33,7 @@ body {
 .main-page-subheader {
     text-align: center;
     font-family: "Open Sans Light";
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .main-page-loading {
@@ -63,6 +64,14 @@ body {
         left: 0;
         opacity: 0.2;
         z-index:-1;
+    }
+
+    &.login {
+        min-height: 0;
+
+        .main-page-title {
+            margin-bottom: 40px;
+        }
     }
 }
 

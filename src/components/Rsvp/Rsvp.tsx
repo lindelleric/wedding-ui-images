@@ -3,11 +3,12 @@ import React from 'react';
 import { Invitee } from './Invitee';
 import { Note } from './Note';
 
-import { Invitation } from './../../types';
+// import { Invitation } from './../../types';
+import { Current } from'./../../generated/graphql';
 
 import './Rsvp.less';
 
-export class Rsvp extends React.Component<{invitation: Invitation}, any> {
+export class Rsvp extends React.Component<{invitation: Current.Invitation}, any> {
 
     public getAwnseredCount(): number {
         const { invitation } = this.props;

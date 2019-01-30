@@ -96,7 +96,7 @@ states.forEach(state => router.stateRegistry.register(state));
 
 const GET_INVITES = gql`
     {
-        me {
+        invitation {
             id
             role
         }

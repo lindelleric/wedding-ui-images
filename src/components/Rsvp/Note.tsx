@@ -2,12 +2,12 @@ import React from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 
-import { Invitation } from './../../types';
+import { Current } from'./../../generated/graphql';
 
 import './Note.less';
 
 interface Props {
-    invitation: Invitation;
+    invitation: Current.Invitation;
 }
 
 interface State {
@@ -24,13 +24,13 @@ const ADD_NOTE = gql`
     }
 `
 
-export class Note extends React.Component<{ invitation: Invitation }, State> {
+export class Note extends React.Component<Props, State> {
     public constructor(props) {
         super(props);
 
         this.state = {
             note: this.props.invitation.note || '',
-            isEdit: false
+            isEdit: !this.props.invitation.note
         };
     }
 
@@ -53,7 +53,7 @@ export class Note extends React.Component<{ invitation: Invitation }, State> {
     public render() {
         return (
             <div className="note-wrapper">
-                <h4>Meddelande</h4>
+                <h4>Meddelande till värdarna (frivilligt)</h4>
                 { this.getContent() }
             </div>
         )
@@ -74,7 +74,7 @@ export class Note extends React.Component<{ invitation: Invitation }, State> {
                             }).then(() => this.toggleEdit())
                         }}>
                                 <textarea name="note" id="note" value={this.state.note} onChange={this.updateNote} placeholder="Skriv gärna ett meddelande. Allergier?"></textarea>
-                                <button type="submit" className="save">Spara</button>
+                                <button type="submit" className="save">Spara meddelande</button>
                         </form>
                     )}
                 </Mutation>
@@ -88,7 +88,7 @@ export class Note extends React.Component<{ invitation: Invitation }, State> {
             )
         } else {
             return (
-                <button onClick={this.toggleEdit}>Lämna meddelande här</button>
+                <button onClick={this.toggleEdit}>Skriv meddelande</button>
             )
         }
     }

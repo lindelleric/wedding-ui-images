@@ -7,3 +7,4 @@ tmp/
 temp/
 *.sublime-workspace
 public
+yarn-error.log
