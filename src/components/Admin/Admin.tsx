@@ -3,34 +3,18 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 
-import { Invitation } from './../../types';
 import { InvitationRow } from './InvitationRow';
+import { NewInvitation } from './NewInvitation';
+
+import { All } from './../../generated/graphql';
 
 import './Admin.less';
-
-const ALL_INVITATIONS = gql`
-    {
-        invitations {
-            id
-            code
-            title
-            note
-            role
-            invitees {
-                id
-                firstName
-                lastName
-                inviteStatus
-            }
-        }
-    }
-`;
 
 export class Admin extends React.Component {
 
     public render() {
         return (
-            <Query<{invitations: Invitation[]}> query={ALL_INVITATIONS} fetchPolicy="network-only">
+            <All.Component fetchPolicy="network-only">
                 {({ data, error, loading, refetch }) => {
                     if (data) {
                         const { invitations } = data;
@@ -44,27 +28,29 @@ export class Admin extends React.Component {
                                 <table className="invitation-table">
                                     <thead>
                                         <tr>
-                                            <th>Title</th>
+                                            <th>Titel</th>
                                             <th>Kod</th>
                                             <th>Kommer</th>
                                             <th>Kommer ej</th>
                                             <th>Ej svarat</th>
                                             <th>Totalt</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {
                                             invitations.map((invitation, i) => (
-                                                <InvitationRow invitation={invitation}  key={i} />
+                                                <InvitationRow invitation={invitation} refetch={refetch} key={i} />
                                             ))
                                         }
                                     </tbody>
                                 </table>
+                                <NewInvitation refetch={refetch} />
                             </div>
                         )
                     }
                 }}
-            </Query>
+            </All.Component>
         );
     }
 }

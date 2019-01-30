@@ -1,8 +1,13 @@
 import React from 'react';
 
-import { Invitation } from './../../types';
+import { All, Remove } from './../../generated/graphql';
 
-export class InvitationRow extends React.Component<{invitation: Invitation}, any> {
+interface Props {
+    invitation: All.Invitations
+    refetch: () => any;
+}
+
+export class InvitationRow extends React.Component<Props, any> {
 
     public getInviteeCount(): number {
         return this.props.invitation.invitees.length;
@@ -32,6 +37,17 @@ export class InvitationRow extends React.Component<{invitation: Invitation}, any
                     <td>{ this.getNotCommingCount() }</td>
                     <td>{ this.getUnknownCount() }</td>
                     <td>{ this.getUnknownCount() }</td>
+                    <td>
+                        <Remove.Component>
+                            {(removeInvitation) => (
+                                <button onClick={() => {
+                                    removeInvitation({
+                                        variables: { invitationId: invitation.id }
+                                    }).then(() => this.props.refetch());
+                                }}><i className="fa fa-times"></i></button>
+                            )}
+                        </Remove.Component>
+                    </td>
                 </tr>
             ) : null
         );

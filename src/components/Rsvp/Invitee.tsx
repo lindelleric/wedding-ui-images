@@ -7,12 +7,12 @@ import './Invitee.less';
 import { Current } from'./../../generated/graphql';
 
 interface InviteeProps {
-    invitee: Current.Invitee;
+    invitee: Current.Invitees;
     // refetch: () => void;
 }
 
 interface InviteeState {
-    invitee: Current.Invitee;
+    invitee: Current.Invitees;
 }
 
 const SETSTATUS = gql`

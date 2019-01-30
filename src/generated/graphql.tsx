@@ -13,6 +13,40 @@ export interface InviteeInput {
 // Documents
 // ====================================================
 
+export namespace Create {
+  export type Variables = {
+    title: string;
+  };
+
+  export type Mutation = {
+    __typename?: "Mutation";
+
+    createInvitation: CreateInvitation;
+  };
+
+  export type CreateInvitation = {
+    __typename?: "Invitation";
+
+    id: string;
+
+    code: string;
+
+    note: Maybe<string>;
+  };
+}
+
+export namespace Remove {
+  export type Variables = {
+    invitationId: string;
+  };
+
+  export type Mutation = {
+    __typename?: "Mutation";
+
+    removeInvitation: boolean;
+  };
+}
+
 export namespace All {
   export type Variables = {};
 
@@ -73,10 +107,10 @@ export namespace Current {
 
     role: Maybe<string>;
 
-    invitees: Invitee[];
+    invitees: Invitees[];
   };
 
-  export type Invitee = {
+  export type Invitees = {
     __typename?: "Invitee";
 
     id: string;
@@ -138,7 +172,7 @@ export interface Mutation {
 
   createInvitation: Invitation;
   /** Returns the removed invitation. This removes the invitation and ALL the invitees in the invitation. Throws if no invitation matching id is found. */
-  removeInvitation: Invitation;
+  removeInvitation: boolean;
 
   addNote: Invitation;
 
@@ -197,6 +231,88 @@ import gql from "graphql-tag";
 // Components
 // ====================================================
 
+export namespace Create {
+  export const Document = gql`
+    mutation create($title: String!) {
+      createInvitation(title: $title) {
+        id
+        code
+        note
+      }
+    }
+  `;
+  export class Component extends React.Component<
+    Partial<ReactApollo.MutationProps<Mutation, Variables>>
+  > {
+    render() {
+      return (
+        <ReactApollo.Mutation<Mutation, Variables>
+          mutation={Document}
+          {...(this as any)["props"] as any}
+        />
+      );
+    }
+  }
+  export type Props<TChildProps = any> = Partial<
+    ReactApollo.MutateProps<Mutation, Variables>
+  > &
+    TChildProps;
+  export type MutationFn = ReactApollo.MutationFn<Mutation, Variables>;
+  export function HOC<TProps, TChildProps = any>(
+    operationOptions:
+      | ReactApollo.OperationOption<
+          TProps,
+          Mutation,
+          Variables,
+          Props<TChildProps>
+        >
+      | undefined
+  ) {
+    return ReactApollo.graphql<TProps, Mutation, Variables, Props<TChildProps>>(
+      Document,
+      operationOptions
+    );
+  }
+}
+export namespace Remove {
+  export const Document = gql`
+    mutation remove($invitationId: String!) {
+      removeInvitation(invitationId: $invitationId)
+    }
+  `;
+  export class Component extends React.Component<
+    Partial<ReactApollo.MutationProps<Mutation, Variables>>
+  > {
+    render() {
+      return (
+        <ReactApollo.Mutation<Mutation, Variables>
+          mutation={Document}
+          {...(this as any)["props"] as any}
+        />
+      );
+    }
+  }
+  export type Props<TChildProps = any> = Partial<
+    ReactApollo.MutateProps<Mutation, Variables>
+  > &
+    TChildProps;
+  export type MutationFn = ReactApollo.MutationFn<Mutation, Variables>;
+  export function HOC<TProps, TChildProps = any>(
+    operationOptions:
+      | ReactApollo.OperationOption<
+          TProps,
+          Mutation,
+          Variables,
+          Props<TChildProps>
+        >
+      | undefined
+  ) {
+    return ReactApollo.graphql<TProps, Mutation, Variables, Props<TChildProps>>(
+      Document,
+      operationOptions
+    );
+  }
+}
 export namespace All {
   export const Document = gql`
     query All {
