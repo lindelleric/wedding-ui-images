@@ -11,7 +11,7 @@ const config = {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'public'),
     },
-    devtool: 'source-map',
+    devtool: 'inline-source-map',
     resolve: {
         extensions: ['.mjs', '.js', '.json', '.ts', '.tsx'], // .mjs fixes https://github.com/graphql/graphql-js/issues/1272
     },

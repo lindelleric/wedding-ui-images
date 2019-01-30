@@ -112,14 +112,14 @@ router.transitionService.onBefore({}, (transition) => {
         return true;
     }
 
-    return apolloClient.query<{ me: Invitation }>({
+    return apolloClient.query<{ invitation: Invitation }>({
             query: GET_INVITES
         })
         .then(({ data }) => {
-            const { me } = data;
+            const { invitation } = data;
 
             if (name === 'admin') {
-                if (me.role !== 'ADMIN') {
+                if (invitation.role !== 'ADMIN') {
                     return stateService.target('403');
                 } else {
                     return true;
