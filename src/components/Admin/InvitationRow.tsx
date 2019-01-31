@@ -61,7 +61,7 @@ export class InvitationRow extends React.Component<Props, State> {
         return (
             this.props.invitation ? (
                 <>
-                    <tr className={`invitation-row-wrapper ${this.props.index % 2 !== 0 ? 'odd' : 'even' } ${ this.state.isExpanded ? 'active' : null }`}>
+                    <tr className={`invitation-row-wrapper ${this.props.index % 2 !== 0 ? 'odd' : 'even' } ${ this.state.isExpanded ? 'active' : '' }`}>
                         <td><input type="checkbox" /></td>
                         <td onClick={() => this.toggle()}>{ invitation.title }</td>
                         <td onClick={() => this.toggle()}>{ invitation.code }</td>
@@ -141,6 +141,9 @@ export class InvitationRow extends React.Component<Props, State> {
                                                     </form>
                                                 )}
                                             </AddInvitee.Component>
+                                        </li>
+                                        <li>
+                                            <small>{invitation.id}</small>
                                         </li>
                                     </ul>
                                 </td>
