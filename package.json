@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/index.tsx --type-check",
+    "start": "docker-compose up -d",
     "build": "webpack",
-    "watch": "webpack-dev-server --hot",
+    "dev": "webpack-dev-server --hot",
     "deploy": "git pull && yarn run docker",
     "docker": "docker-compose up -d --build",
     "generate-types": "gql-gen --config codegen.yml"
