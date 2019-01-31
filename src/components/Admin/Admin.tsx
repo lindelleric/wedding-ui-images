@@ -8,9 +8,19 @@ import { NewInvitation } from './NewInvitation';
 
 import { All } from './../../generated/graphql';
 
+interface State {
+    sortField: string;
+    sortDirection: boolean;
+}
+
 import './Admin.less';
 
-export class Admin extends React.Component {
+export class Admin extends React.Component<null, State> {
+
+
+    private clickHeader(field: string) {
+         // TODO
+    }
 
     public render() {
         return (
@@ -28,19 +38,21 @@ export class Admin extends React.Component {
                                 <table className="invitation-table">
                                     <thead>
                                         <tr>
-                                            <th>Titel</th>
-                                            <th>Kod</th>
-                                            <th>Kommer</th>
-                                            <th>Kommer ej</th>
-                                            <th>Ej svarat</th>
-                                            <th>Totalt</th>
-                                            <th></th>
+                                            <th className="check"></th>
+                                            <th className="title">Titel</th>
+                                            <th className="code">Kod</th>
+                                            <th className="note">Meddelande</th>
+                                            <th className="coming">Kommer</th>
+                                            <th className="not-coming">Kommer ej</th>
+                                            <th className="not-answered">Ej svarat</th>
+                                            <th className="total">Totalt</th>
+                                            <th className="remove"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {
                                             invitations.map((invitation, i) => (
-                                                <InvitationRow invitation={invitation} refetch={refetch} key={i} />
+                                                <InvitationRow invitation={invitation} refetch={refetch} key={i} index={i} />
                                             ))
                                         }
                                     </tbody>

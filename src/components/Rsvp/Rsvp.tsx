@@ -22,6 +22,7 @@ export class Rsvp extends React.Component<{invitation: Current.Invitation}, any>
     }
 
     public render() {
+        console.log('rsvp render',this.props.invitation);
         return (
             this.props.invitation ? (
                 <div className="rsvp-wrapper">
@@ -37,7 +38,7 @@ export class Rsvp extends React.Component<{invitation: Current.Invitation}, any>
 
                     <table className="invitee-table">
                         <tbody>
-                            { this.props.invitation.invitees.map((invitee, i) => <Invitee invitee={invitee} key={i}></Invitee> ) }
+                            { this.props.invitation.invitees.map((invitee, i) => <Invitee invitee={invitee} key={invitee.id}></Invitee> ) }
                         </tbody>
                     </table>
 

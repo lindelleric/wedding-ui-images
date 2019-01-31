@@ -38,7 +38,7 @@ export class Login extends React.Component<any, any> {
     public render() {
         return (
             <Mutation mutation={AUTHENTICATE}>
-                {(authenticate, { data, error }) => (
+                {(authenticate, { data, error, loading }) => (
                     <div className="login-wrapper">
                         <form onSubmit={event => {
                                 event.preventDefault();
@@ -47,7 +47,7 @@ export class Login extends React.Component<any, any> {
                         >
                             <input type="text" className="code-input" name="code" placeholder="Skriv in er personliga kod här" value={this.state.code} onChange={this.updateCode}/>
 
-                            <button type="submit" className="login-button" disabled={!this.state.code}>Logga in</button>
+                            <button type="submit" className={`login-button ${ loading ? 'submitted' : '' }`} disabled={!this.state.code}>Logga in</button>
 
                             {
                                 error && error.graphQLErrors.map((error, i) => {

@@ -123,6 +123,38 @@ export namespace Current {
   };
 }
 
+export namespace AddInvitee {
+  export type Variables = {
+    invitationId: string;
+    firstName: string;
+    lastName: string;
+  };
+
+  export type Mutation = {
+    __typename?: "Mutation";
+
+    addInvitee: AddInvitee;
+  };
+
+  export type AddInvitee = {
+    __typename?: "Invitee";
+
+    id: string;
+  };
+}
+
+export namespace RemoveInvitee {
+  export type Variables = {
+    inviteeId: string;
+  };
+
+  export type Mutation = {
+    __typename?: "Mutation";
+
+    removeInvitee: boolean;
+  };
+}
+
 // ====================================================
 // Types
 // ====================================================
@@ -165,8 +197,8 @@ export interface Invitation {
 
 export interface Mutation {
   addInvitee: Invitee;
-  /** This returnes the removed invitee. Throws error if invitee is not found. */
-  removeInvitee: Invitee;
+
+  removeInvitee: boolean;
 
   setInviteStatus?: Maybe<Invitee>;
 
@@ -408,6 +440,96 @@ export namespace Current {
       | undefined
   ) {
     return ReactApollo.graphql<TProps, Query, Variables, Props<TChildProps>>(
+      Document,
+      operationOptions
+    );
+  }
+}
+export namespace AddInvitee {
+  export const Document = gql`
+    mutation AddInvitee(
+      $invitationId: String!
+      $firstName: String!
+      $lastName: String!
+    ) {
+      addInvitee(
+        invitee: {
+          invitationId: $invitationId
+          firstName: $firstName
+          lastName: $lastName
+        }
+      ) {
+        id
+      }
+    }
+  `;
+  export class Component extends React.Component<
+    Partial<ReactApollo.MutationProps<Mutation, Variables>>
+  > {
+    render() {
+      return (
+        <ReactApollo.Mutation<Mutation, Variables>
+          mutation={Document}
+          {...(this as any)["props"] as any}
+        />
+      );
+    }
+  }
+  export type Props<TChildProps = any> = Partial<
+    ReactApollo.MutateProps<Mutation, Variables>
+  > &
+    TChildProps;
+  export type MutationFn = ReactApollo.MutationFn<Mutation, Variables>;
+  export function HOC<TProps, TChildProps = any>(
+    operationOptions:
+      | ReactApollo.OperationOption<
+          TProps,
+          Mutation,
+          Variables,
+          Props<TChildProps>
+        >
+      | undefined
+  ) {
+    return ReactApollo.graphql<TProps, Mutation, Variables, Props<TChildProps>>(
+      Document,
+      operationOptions
+    );
+  }
+}
+export namespace RemoveInvitee {
+  export const Document = gql`
+    mutation RemoveInvitee($inviteeId: String!) {
+      removeInvitee(inviteeId: $inviteeId)
+    }
+  `;
+  export class Component extends React.Component<
+    Partial<ReactApollo.MutationProps<Mutation, Variables>>
+  > {
+    render() {
+      return (
+        <ReactApollo.Mutation<Mutation, Variables>
+          mutation={Document}
+          {...(this as any)["props"] as any}
+        />
+      );
+    }
+  }
+  export type Props<TChildProps = any> = Partial<
+    ReactApollo.MutateProps<Mutation, Variables>
+  > &
+    TChildProps;
+  export type MutationFn = ReactApollo.MutationFn<Mutation, Variables>;
+  export function HOC<TProps, TChildProps = any>(
+    operationOptions:
+      | ReactApollo.OperationOption<
+          TProps,
+          Mutation,
+          Variables,
+          Props<TChildProps>
+        >
+      | undefined
+  ) {
+    return ReactApollo.graphql<TProps, Mutation, Variables, Props<TChildProps>>(
       Document,
       operationOptions
     );

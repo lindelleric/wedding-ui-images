@@ -10,42 +10,19 @@ import { UIView } from '@uirouter/react';
 import { Nav } from './components/Nav';
 import { Divider } from './components/common/Divider';
 
-// import { Invitation } from './types';
-
 import { Current, Invitation } from './generated/graphql';
-
-// const GET_INVITES = gql`
-//     {
-//         me {
-//             id
-//             code
-//             title
-//             note
-//             role
-//             invitees {
-//                 id
-//                 firstName
-//                 lastName
-//                 inviteStatus
-//             }
-//         }
-//     }
-// `;
 
 export class App extends React.Component<any, any> {
     public render() {
-        console.log('app props', this.props);
         return (
             <Current.Component fetchPolicy="network-only">
                 {({ data, error, loading, refetch }) => {
-                    {/*let invitation: Invitation | null = null;*/}
                     let invitation: Current.Invitation | null = null;
 
                     if (data) {
                         invitation = data.invitation;
                     }
 
-                    console.log('invitatiopn',invitation);
                     return (
                         <div className={`page-wrapper ${ invitation ? '' : 'login' }`}>
 
