@@ -66,6 +66,7 @@ export class InvitationRow extends React.Component<Props, State> {
                         <td onClick={() => this.toggle()}>{ invitation.title }</td>
                         <td onClick={() => this.toggle()}>{ invitation.code }</td>
                         <td onClick={() => this.toggle()}>{ invitation.note }</td>
+                        <td onClick={() => this.toggle()}>{ new Date(parseInt(invitation.lastActive || '', 10)).toLocaleString() }</td>
                         <td onClick={() => this.toggle()}>{ this.getCommingCount() }</td>
                         <td onClick={() => this.toggle()}>{ this.getNotCommingCount() }</td>
                         <td onClick={() => this.toggle()}>{ this.getUnknownCount() }</td>
@@ -89,7 +90,8 @@ export class InvitationRow extends React.Component<Props, State> {
                     {
                         this.state.isExpanded ? (
                             <tr className="more-info">
-                                <td colSpan={9}>
+                                <td colSpan={10}>
+                                    <p className="info-note">{ invitation.note }</p>
                                     <ul>
                                         {invitation.invitees.map((invitee) => (
                                             <li className="invitee-row" key={invitee.id}>
@@ -144,6 +146,7 @@ export class InvitationRow extends React.Component<Props, State> {
                                         </li>
                                         <li>
                                             <small>{invitation.id}</small>
+                                            <small>{invitation.code}</small>
                                         </li>
                                     </ul>
                                 </td>

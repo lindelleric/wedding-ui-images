@@ -69,6 +69,8 @@ export namespace All {
 
     role: Maybe<string>;
 
+    lastActive: Maybe<string>;
+
     invitees: Invitees[];
   };
 
@@ -191,6 +193,8 @@ export interface Invitation {
   title?: Maybe<string>;
 
   role?: Maybe<string>;
+
+  lastActive?: Maybe<string>;
 
   invitees: Invitee[];
 }
@@ -354,6 +358,7 @@ export namespace All {
         title
         note
         role
+        lastActive
         invitees {
           id
           firstName

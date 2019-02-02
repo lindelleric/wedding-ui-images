@@ -42,6 +42,7 @@ export class Admin extends React.Component<null, State> {
                                             <th className="title">Titel</th>
                                             <th className="code">Kod</th>
                                             <th className="note">Meddelande</th>
+                                            <th className="last-visit">Senaste besök</th>
                                             <th className="coming">Kommer</th>
                                             <th className="not-coming">Kommer ej</th>
                                             <th className="not-answered">Ej svarat</th>

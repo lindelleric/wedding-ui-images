@@ -8,6 +8,7 @@ export const meMutation = gql`
             title
             note
             role
+            lastActive
             invitees {
                 id
                 firstName

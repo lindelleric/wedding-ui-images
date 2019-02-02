@@ -42,7 +42,7 @@ export class Login extends React.Component<any, any> {
                     <div className="login-wrapper">
                         <form onSubmit={event => {
                                 event.preventDefault();
-                                authenticate({ variables: { invitationCode: this.state.code } }).then((response) => this.onSuccessfulLogin(response));
+                                authenticate({ variables: { invitationCode: this.state.code.trim() } }).then((response) => this.onSuccessfulLogin(response));
                             }}
                         >
                             <input type="text" className="code-input" name="code" placeholder="Skriv in er personliga kod här" value={this.state.code} onChange={this.updateCode}/>
