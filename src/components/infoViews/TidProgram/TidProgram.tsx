@@ -1,18 +1,14 @@
 import React from 'react';
 
-export const TidProgram = () => (
-    <div className="info-wrapper">
-        <h3>Tid</h3>
-        <ul>
-            <li>Vigseln börjar 15.00 men vänligen var på plats en god stund innan.</li>
-        </ul>
+import './TidProgram.less';
 
-        <h3>Program - övergripande</h3>
-        <ul>
-            <li>Efter vigseln sker fotografering och mingel. Middagen serveras ca 17.30</li>
-            <li>Tårta serveras ca 21.00</li>
-            <li>Nattamat serveras ca 00.00</li>
-            <li>Firandet pågår hela kvällen och natten och ni är välkomna att stanna precis hur länge ni vill!</li>
+export const TidProgram = () => (
+    <div className="info-wrapper tid">
+        <ul className="fancy">
+            <li><strong>15:00</strong> - Vigseln börjar. Var på plats en stund innan.</li>
+            <li><strong>17:30</strong> - Middagen serveras.</li>
+            <li><strong>20:30</strong> - Tårta.</li>
+            <li>Firandet fortsätter sedan hela kvällen och natten med dans, mys, nattamad och fler roligheter!</li>
         </ul>
     </div>
 )

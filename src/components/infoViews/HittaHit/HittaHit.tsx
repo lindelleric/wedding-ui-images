@@ -1,25 +1,30 @@
 import React from 'react';
 
+import './HittaHit.less';
+
 export const HittaHit = () => (
-    <div className="info-wrapper">
-        <h2>Hitta hit</h2>
+    <div className="info-wrapper hitta-hit">
+        {/*<h2>Hitta hit</h2>*/}
 
         <ul>
             <li>
-                Här samlar vi alla festligheter för dagen. Både vigseln och festen sker i denna fina byggnad.
+                <strong>Adress:</strong> Köpmansmagasinet - Smyge strandväg 10, 231 78 Smygehamn <a href="https://goo.gl/maps/tJWrVKS1oWU2" target="_blank">(Klicka här för länk till Google Maps)</a>
             </li>
 
             <li>
-                Plats: Köpmansmagasinet - Smyge strandväg 10, 231 78 Smygehamn <a href="">(Klicka här för länk till Google Maps)</a>
+                Här samlar vi alla festligheter för dagen. Både vigseln och festen sker här.
             </li>
 
             <li>
-                Det går att ta regionbuss till Smygehamn från antingen Trelleborg eller Ystad. Hoppa då av vid hållplatsen ”Smygehamn Magasinet” <a href="">(Klicka här för länk till Skånetrafiken och busslinje 190)</a>
+                Hit går regionbuss 190 från Trelleborg eller Ystad, hållplats ”Smygehamn Magasinet” <a href="https://www.skanetrafiken.se/tidtabeller/Regionbuss/181209_190615/Regionbuss_190_181209_190615.pdf" target="_blank">(Busstidstabell 190)</a>
             </li>
 
             <li>
-                Det är inga problem med parkeringsmöjligheter i nära anslutning till lokalen. Det finns en stor grusyta där det är gratis att parkera.
+                För er som kommer med bil finns det gratis parkering.
             </li>
         </ul>
+        <div className="img-wrapper">
+            <img src="./../../../../assets/images/magasin1.jpg" alt="" />
+        </div>
     </div>
 )

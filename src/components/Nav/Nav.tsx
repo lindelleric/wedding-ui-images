@@ -41,13 +41,6 @@ export class Nav extends React.Component<{ invitation: Current.Invitation }> {
                     </li>
                     <li>
                         <UISrefActive class="active">
-                            <UISref to="praktiskInfo">
-                                <a>Praktisk info</a>
-                            </UISref>
-                        </UISrefActive>
-                    </li>
-                    <li>
-                        <UISrefActive class="active">
                             <UISref to="kladkod">
                                 <a>Klädkod</a>
                             </UISref>
@@ -63,7 +56,7 @@ export class Nav extends React.Component<{ invitation: Current.Invitation }> {
                     <li>
                         <UISrefActive class="active">
                             <UISref to="onskelista">
-                                <a>Önskalista</a>
+                                <a>Önskelista</a>
                             </UISref>
                         </UISrefActive>
                     </li>
@@ -71,6 +64,13 @@ export class Nav extends React.Component<{ invitation: Current.Invitation }> {
                         <UISrefActive class="active">
                             <UISref to="toastmaster">
                                 <a>Toastmaster</a>
+                            </UISref>
+                        </UISrefActive>
+                    </li>
+                    <li>
+                        <UISrefActive class="active">
+                            <UISref to="praktiskInfo">
+                                <a>Kontaktuppgifter</a>
                             </UISref>
                         </UISrefActive>
                     </li>

@@ -52,7 +52,7 @@ const states = [
     },
     {
         name: 'praktiskInfo',
-        url: '/praktisk-info',
+        url: '/kontaktuppgifter',
         component: PraktiskInfo,
     },
     {
