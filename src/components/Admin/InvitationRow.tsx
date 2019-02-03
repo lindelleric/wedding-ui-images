@@ -65,8 +65,8 @@ export class InvitationRow extends React.Component<Props, State> {
                         <td><input type="checkbox" /></td>
                         <td onClick={() => this.toggle()}>{ invitation.title }</td>
                         <td onClick={() => this.toggle()}>{ invitation.code }</td>
-                        <td onClick={() => this.toggle()}>{ invitation.note }</td>
-                        <td onClick={() => this.toggle()}>{ new Date(parseInt(invitation.lastActive || '', 10)).toLocaleString() }</td>
+                        <td onClick={() => this.toggle()}>{ invitation.note || '-' }</td>
+                        <td onClick={() => this.toggle()}>{ invitation.lastActive? new Date(parseInt(invitation.lastActive, 10)).toLocaleString() : '-' }</td>
                         <td onClick={() => this.toggle()}>{ this.getCommingCount() }</td>
                         <td onClick={() => this.toggle()}>{ this.getNotCommingCount() }</td>
                         <td onClick={() => this.toggle()}>{ this.getUnknownCount() }</td>

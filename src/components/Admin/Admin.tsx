@@ -53,7 +53,7 @@ export class Admin extends React.Component<null, State> {
                                     <tbody>
                                         {
                                             invitations.map((invitation, i) => (
-                                                <InvitationRow invitation={invitation} refetch={refetch} key={i} index={i} />
+                                                <InvitationRow invitation={invitation} refetch={refetch} key={invitation.id} index={i} />
                                             ))
                                         }
                                     </tbody>
