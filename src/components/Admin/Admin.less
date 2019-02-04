@@ -2,6 +2,7 @@
 @import "./../../styles/mixins";
 
 .admin-wrapper {
+    font-size: 12px;
     .invitation-table {
         width: 100%;
         background: white;
@@ -115,20 +116,25 @@
 
                     .info-note {
                         margin-left: 30px;
+                        white-space: pre;
                     }
 
                     .invitee-row {
                         padding: 5px 0;
+                        .display-flex;
+                        .align-items(center);
                     }
 
                     .name {
-                        display: inline-block;
-                        width: 130px;
+                        margin-right: 15px;
+                        // display: inline-block;
+                        // width: 130px;
                     }
 
                     .status {
-                        display: inline-block;
-                        width: 80px;
+                        // display: inline-block;
+                        // width: 80px;
+                        margin-right: 15px;
                     }
 
                     .add-invitee {

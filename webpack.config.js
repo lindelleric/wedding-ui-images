@@ -25,14 +25,14 @@ const config = {
                 test: /\.(less|css)$/,
                 use: ['style-loader', 'css-loader', 'less-loader'],
             },
-            {
-                test: /\.(png|jpg|jpeg|svg)$/,
-                loader: 'url-loader',
-                query: {
-                    // limit: 8192,
-                    name: 'assets/images/[name].[ext]'
-                }
-            },
+            // {
+            //     test: /\.(png|jpg|jpeg|svg)$/,
+            //     loader: 'url-loader',
+            //     query: {
+            //         // limit: 8192,
+            //         name: 'assets/images/[name].[ext]'
+            //     }
+            // },
             {
                 test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 loader: 'url-loader',
@@ -46,6 +46,15 @@ const config = {
                 loader: 'file-loader',
                 query: {
                     name: 'assets/fonts/[name].[ext]'
+                }
+            },
+            {
+                type: 'javascript/auto',
+                test: /\.(png|jpg|svg|jpeg)$/,
+                include: path.resolve(__dirname, 'assets', 'images'),
+                loader: 'file-loader',
+                query: {
+                    name: 'assets/images/[name].[ext]'
                 }
             },
             { // fixes https://github.com/graphql/graphql-js/issues/1272

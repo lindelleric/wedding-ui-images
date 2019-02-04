@@ -58,6 +58,8 @@ export class Admin extends React.Component<null, State> {
                                                 <InvitationRow invitation={invitation} refetch={refetch} key={invitation.id} index={i} />
                                             ))
                                         }
+                                        <tr>
+                                        </tr>
                                     </tbody>
                                 </table>
                                 <NewInvitation refetch={refetch} />

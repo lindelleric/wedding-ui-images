@@ -1,11 +1,10 @@
 import React from 'react';
 
+import Magasin from './../../../../assets/images/magasin.jpg';
 import './HittaHit.less';
 
 export const HittaHit = () => (
     <div className="info-wrapper hitta-hit">
-        {/*<h2>Hitta hit</h2>*/}
-
         <ul>
             <li>
                 <strong>Adress:</strong> Köpmansmagasinet - Smyge strandväg 10, 231 78 Smygehamn (<a href="https://goo.gl/maps/tJWrVKS1oWU2" target="_blank">Karta</a>)
@@ -24,7 +23,7 @@ export const HittaHit = () => (
             </li>
         </ul>
         <div className="img-wrapper">
-            <img src="./../../../../assets/images/magasin1.jpg" alt="" />
+            <img src={Magasin} alt="" />
         </div>
     </div>
 )
