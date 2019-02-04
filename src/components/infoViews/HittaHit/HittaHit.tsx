@@ -8,7 +8,7 @@ export const HittaHit = () => (
 
         <ul>
             <li>
-                <strong>Adress:</strong> Köpmansmagasinet - Smyge strandväg 10, 231 78 Smygehamn <a href="https://goo.gl/maps/tJWrVKS1oWU2" target="_blank">(Klicka här för länk till Google Maps)</a>
+                <strong>Adress:</strong> Köpmansmagasinet - Smyge strandväg 10, 231 78 Smygehamn (<a href="https://goo.gl/maps/tJWrVKS1oWU2" target="_blank">Karta</a>)
             </li>
 
             <li>
@@ -16,7 +16,7 @@ export const HittaHit = () => (
             </li>
 
             <li>
-                Hit går regionbuss 190 från Trelleborg eller Ystad, hållplats ”Smygehamn Magasinet” <a href="https://www.skanetrafiken.se/tidtabeller/Regionbuss/181209_190615/Regionbuss_190_181209_190615.pdf" target="_blank">(Busstidstabell 190)</a>
+                Hit går regionbuss 190 från Trelleborg eller Ystad, hållplats ”Smygehamn Magasinet”. (<a href="https://www.skanetrafiken.se/tidtabeller/Regionbuss/181209_190615/Regionbuss_190_181209_190615.pdf" target="_blank">Busstidstabell 190</a>)
             </li>
 
             <li>

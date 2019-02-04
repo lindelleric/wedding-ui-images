@@ -3,8 +3,11 @@ import React from 'react';
 export const Toastmaster = () => (
     <div className="info-wrapper">
         <ul>
-            <li className="margin-bottom">
-                Vi är glada och stolta över att presentera vår toastmaster <b className="countryside">Anna Sandström</b>.
+            <li>
+                Vi är glada och stolta över att presentera vår toastmaster:
+            </li>
+            <li className="countryside fet center margin-bottom">
+                Anna Sandström
             </li>
             <li>
                 Anna ansvarar för planering och organisering av tal, lekar och övergripande struktur under dagen.

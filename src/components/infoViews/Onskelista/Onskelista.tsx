@@ -3,11 +3,11 @@ import React from 'react';
 export const Onskelista = () => (
     <div className="info-wrapper">
         <ul>
-            <li>
+            <li className="fet">
                 Viktigast för oss är att ni kan, och vill, komma och dela denna dagen med oss.
             </li>
             <li>
-                Men - för den som ändå vill köpa något så har vi några förslag:
+                Men - för den som ändå vill köpa något - så har vi några förslag:
             </li>
             <li>
                 <ul className="fancy">
