@@ -52,7 +52,9 @@ export class Admin extends React.Component<null, State> {
                                     </thead>
                                     <tbody>
                                         {
-                                            invitations.map((invitation, i) => (
+                                            invitations
+                                            .sort((a, b) => (a!.title || 0) > (b!.title || 0) ? 1 : -1)
+                                            .map((invitation, i) => (
                                                 <InvitationRow invitation={invitation} refetch={refetch} key={invitation.id} index={i} />
                                             ))
                                         }
