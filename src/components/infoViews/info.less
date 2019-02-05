@@ -54,15 +54,19 @@
             .not-fancy {
                 padding-left: 45px;
             }
-            li:not(.naked):not(.not-fancy) {
-                .display-flex;
 
+            li:not(.naked):not(.not-fancy) {
+
+                position: relative;
+                padding-left: 40px;
                 &:before {
                     content: "[";
                     font-family: "Countryside";
                     margin-right: 15px;
                     font-size: 20px;
                     line-height: 10px;
+                    position: absolute;
+                    left: 0;
                 }
 
                 a {

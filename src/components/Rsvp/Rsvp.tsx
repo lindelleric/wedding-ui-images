@@ -22,7 +22,6 @@ export class Rsvp extends React.Component<{invitation: Current.Invitation}, any>
     }
 
     public render() {
-        console.log('rsvp render',this.props.invitation);
         return (
             this.props.invitation ? (
                 <div className="rsvp-wrapper">

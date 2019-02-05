@@ -62,7 +62,7 @@ export class Nav extends React.Component<Props, State> {
         return (
             <>
                 <div onClick={this.toggleMenu} className={`mobile-header ${this.state.isOpen ? 'open' : ''}`}>
-                    <i className="fa fa-bars menu-icon"></i>
+                    <i className={`menu-icon fa ${ this.state.isOpen ? 'fa-times' : 'fa-bars' }`}></i>
                     <span className="current-state">{ this.state.currentState }</span>
                 </div>
                 <div className={`nav-wrapper ${this.state.isOpen ? 'open' : ''}`}>
