@@ -12,20 +12,20 @@ textarea {
     overflow: hidden;
     text-overflow: ellipsis;
     position: relative;
-    box-shadow: 0 0 0 1px @input-default-color;
     border-radius: 3px;
     cursor: text;
     padding: 5px 10px;
     .transition(all 0.3s);
+    .box-shadow(0 0 0 1px @input-default-color);
 
     /* Hover, active */
     &:hover, &:active {
-        box-shadow: 0 0 0 1px fade(@input-border-color, 70%);
+        .box-shadow(0 0 0 1px fade(@input-border-color, 70%));
     }
 
     /* Focus */
     &:focus {
-        box-shadow: 0 0 0 2px fade(@input-border-color, 100%);
+        .box-shadow(0 0 0 2px fade(@input-border-color, 100%));
         color: rgba(51, 51, 51, 1);
     }
 
@@ -33,10 +33,10 @@ textarea {
     &:invalid,
     &.ng-invalid {
         &:not(.ng-untouched) {
-            box-shadow: 0 0 0 1px @input-required-color;
+            .box-shadow(0 0 0 1px @input-required-color);
 
             &:focus {
-                box-shadow: 0 0 0 2px @input-required-color;
+                .box-shadow(0 0 0 2px @input-required-color);
             }
         }
     }
