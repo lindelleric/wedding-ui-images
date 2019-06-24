@@ -47,15 +47,8 @@ export class Nav extends React.Component<Props, State> {
     }
 
     private stateMap = {
-        rsvp: 'OSA',
-        hittaHit: 'Hitta hit',
-        tidProgram: 'Tid och program',
-        kladkod: 'Klädkod',
-        overnattning: 'Övernattning',
-        onskelista: 'Önskelista',
-        toastmaster: 'Toastmaster',
-        praktiskInfo: 'Kontaktuppgifter',
-        admin: 'Admin'
+        bilder: 'Bilder',
+        filmer: 'Filmer',
     };
 
     public render() {
@@ -69,71 +62,18 @@ export class Nav extends React.Component<Props, State> {
                     <ul>
                         <li>
                             <UISrefActive class="active">
-                                <UISref to="rsvp">
-                                    <a onClick={this.toggleMenu}>OSA</a>
+                                <UISref to="bilder">
+                                    <a onClick={this.toggleMenu}>Bilder</a>
                                 </UISref>
                             </UISrefActive>
                         </li>
                         <li>
                             <UISrefActive class="active">
-                                <UISref to="hittaHit">
-                                    <a onClick={this.toggleMenu}>Hitta hit</a>
+                                <UISref to="filmer">
+                                    <a onClick={this.toggleMenu}>Filmer</a>
                                 </UISref>
                             </UISrefActive>
                         </li>
-                        <li>
-                            <UISrefActive class="active">
-                                <UISref to="tidProgram">
-                                    <a onClick={this.toggleMenu}>Tid och program</a>
-                                </UISref>
-                            </UISrefActive>
-                        </li>
-                        <li>
-                            <UISrefActive class="active">
-                                <UISref to="kladkod">
-                                    <a onClick={this.toggleMenu}>Klädkod</a>
-                                </UISref>
-                            </UISrefActive>
-                        </li>
-                        <li>
-                            <UISrefActive class="active">
-                                <UISref to="overnattning">
-                                    <a onClick={this.toggleMenu}>Övernattning</a>
-                                </UISref>
-                            </UISrefActive>
-                        </li>
-                        <li>
-                            <UISrefActive class="active">
-                                <UISref to="onskelista">
-                                    <a onClick={this.toggleMenu}>Önskelista</a>
-                                </UISref>
-                            </UISrefActive>
-                        </li>
-                        <li>
-                            <UISrefActive class="active">
-                                <UISref to="toastmaster">
-                                    <a onClick={this.toggleMenu}>Toastmaster</a>
-                                </UISref>
-                            </UISrefActive>
-                        </li>
-                        <li>
-                            <UISrefActive class="active">
-                                <UISref to="praktiskInfo">
-                                    <a onClick={this.toggleMenu}>Kontaktuppgifter</a>
-                                </UISref>
-                            </UISrefActive>
-                        </li>
-                        {
-                            this.isAdmin() ? (
-                                <li>
-                                    <UISrefActive class="active">
-                                        <UISref to="admin">
-                                            <a onClick={this.toggleMenu}>Admin</a>
-                                        </UISref>
-                                    </UISrefActive>
-                                </li>
-                            ) : null
-                        }
                     </ul>
                 </div>
             </>

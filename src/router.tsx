@@ -4,16 +4,8 @@ import ReactDOM from 'react-dom';
 
 import { UIRouterReact, TargetState, pushStateLocationPlugin, servicesPlugin, hashLocationPlugin } from '@uirouter/react';
 
-import { Rsvp } from './components/Rsvp';
 import { Login } from './components/Login';
-import { HittaHit } from './components/infoViews/HittaHit/HittaHit';
-import { TidProgram } from './components/infoViews/TidProgram/TidProgram';
-import { PraktiskInfo } from './components/infoViews/PraktiskInfo/PraktiskInfo';
-import { Kladkod } from './components/infoViews/Kladkod/Kladkod';
-import { Overnattning } from './components/infoViews/Overnattning/Overnattning';
-import { Onskelista } from './components/infoViews/Onskelista/Onskelista';
-import { Toastmaster } from './components/infoViews/Toastmaster/Toastmaster';
-import { Admin } from './components/Admin/Admin';
+import { Bilder } from './components/Bilder/Bilder';
 import { rootState } from './App';
 
 import { Invitation } from './types';
@@ -31,55 +23,20 @@ router.plugin(pushStateLocationPlugin);
 const states = [
     rootState,
     {
-        name: 'rsvp',
-        url: '/rsvp',
-        component: Rsvp,
-    },
-    {
         name: 'login',
         url: '/code',
         component: Login,
     },
     {
-        name: 'hittaHit',
-        url: '/hitta-hit',
-        component: HittaHit,
+        name: 'bilder',
+        url: '/bilder',
+        component: Bilder,
     },
-    {
-        name: 'tidProgram',
-        url: '/tid-och-program',
-        component: TidProgram,
-    },
-    {
-        name: 'praktiskInfo',
-        url: '/kontaktuppgifter',
-        component: PraktiskInfo,
-    },
-    {
-        name: 'kladkod',
-        url: '/kladkod',
-        component: Kladkod,
-    },
-    {
-        name: 'overnattning',
-        url: '/overnattning',
-        component: Overnattning,
-    },
-    {
-        name: 'onskelista',
-        url: '/onskelista',
-        component: Onskelista,
-    },
-    {
-        name: 'toastmaster',
-        url: '/toastmaster',
-        component: Toastmaster,
-    },
-    {
-        name: 'admin',
-        url: '/admin',
-        component: Admin,
-    },
+    // {
+    //     name: 'filmer',
+    //     url: '/filmer',
+    //     component: Filmer,
+    // },
     {
         name: 'notFound',
         url: '/404',
