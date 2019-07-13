@@ -38,7 +38,7 @@ export class Login extends React.Component<any, any> {
     public render() {
         return (
             <Mutation mutation={AUTHENTICATE}>
-                {(authenticate, { data, error, loading }) => (
+                {(authenticate, { data, error, loading }: any) => (
                     <div className="login-wrapper">
                         <form onSubmit={event => {
                                 event.preventDefault();
