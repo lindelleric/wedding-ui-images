@@ -4,9 +4,11 @@ import ReactDOM from 'react-dom';
 
 import { UIRouterReact, TargetState, pushStateLocationPlugin, servicesPlugin, hashLocationPlugin } from '@uirouter/react';
 
+import { rootState } from './App';
 import { Login } from './components/Login';
 import { Bilder } from './components/Bilder/Bilder';
-import { rootState } from './App';
+import { Filmer } from './components/Filmer/Filmer';
+import { Tack } from './components/Tack/Tack';
 
 import { Invitation } from './types';
 
@@ -18,7 +20,6 @@ const router = new UIRouterReact();
 router.plugin(servicesPlugin);
 router.plugin(pushStateLocationPlugin);
 
-
 // TODO: Gör snyggare. Decorators?
 const states = [
     rootState,
@@ -28,15 +29,20 @@ const states = [
         component: Login,
     },
     {
+        name: 'tack',
+        url: '/tack',
+        component: Tack,
+    },
+    {
         name: 'bilder',
         url: '/bilder',
         component: Bilder,
     },
-    // {
-    //     name: 'filmer',
-    //     url: '/filmer',
-    //     component: Filmer,
-    // },
+    {
+        name: 'filmer',
+        url: '/filmer',
+        component: Filmer,
+    },
     {
         name: 'notFound',
         url: '/404',

@@ -30,6 +30,8 @@ export namespace Images {
     thumbWidth: number;
 
     thumbHeight: number;
+
+    orientation: number;
   };
 }
 
@@ -121,6 +123,8 @@ export interface Image {
   thumbWidth: number;
 
   thumbHeight: number;
+
+  orientation: number;
 }
 
 export interface Mutation {
@@ -198,6 +202,7 @@ export namespace Images {
         filename
         thumbWidth
         thumbHeight
+        orientation
       }
     }
   `;

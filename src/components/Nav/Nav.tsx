@@ -62,6 +62,13 @@ export class Nav extends React.Component<Props, State> {
                     <ul>
                         <li>
                             <UISrefActive class="active">
+                                <UISref to="tack">
+                                    <a onClick={this.toggleMenu}>Tack</a>
+                                </UISref>
+                            </UISrefActive>
+                        </li>
+                        <li>
+                            <UISrefActive class="active">
                                 <UISref to="bilder">
                                     <a onClick={this.toggleMenu}>Bilder</a>
                                 </UISref>

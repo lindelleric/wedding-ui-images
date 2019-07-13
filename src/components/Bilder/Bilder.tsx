@@ -18,11 +18,11 @@ export class Bilder extends React.Component {
                     }
 
                     if (data) {
-                        images = data.images.map(({filename, thumbWidth, thumbHeight}) => ({
+                        images = data.images.map(({filename, thumbWidth, thumbHeight, orientation}) => ({
                             src: `/static/images/${filename}?token=${localStorage.getItem('token')}`,
                             thumbnail: `/static/images/thumbs/${filename}?token=${localStorage.getItem('token')}`,
                             thumbnailWidth: thumbWidth,
-                            thumbnailHeight: thumbHeight
+                            thumbnailHeight: thumbHeight,
                         }));
                     }
 
