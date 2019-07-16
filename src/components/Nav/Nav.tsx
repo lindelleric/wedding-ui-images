@@ -49,6 +49,7 @@ export class Nav extends React.Component<Props, State> {
     private stateMap = {
         bilder: 'Bilder',
         filmer: 'Filmer',
+        admin: 'Admin'
     };
 
     public render() {
@@ -81,6 +82,17 @@ export class Nav extends React.Component<Props, State> {
                                 </UISref>
                             </UISrefActive>
                         </li>
+                        {
+                            this.isAdmin() ? (
+                                <li>
+                                    <UISrefActive class="active">
+                                        <UISref to="admin">
+                                            <a onClick={this.toggleMenu}>Admin</a>
+                                        </UISref>
+                                    </UISrefActive>
+                                </li>
+                            ) : null
+                        }
                     </ul>
                 </div>
             </>

@@ -9,6 +9,7 @@ import { Login } from './components/Login';
 import { Bilder } from './components/Bilder/Bilder';
 import { Filmer } from './components/Filmer/Filmer';
 import { Tack } from './components/Tack/Tack';
+import { Admin } from './components/Admin/Admin';
 
 import { Invitation } from './types';
 
@@ -42,6 +43,11 @@ const states = [
         name: 'filmer',
         url: '/filmer',
         component: Filmer,
+    },
+    {
+        name: 'admin',
+        url: '/admin',
+        component: Admin,
     },
     {
         name: 'notFound',

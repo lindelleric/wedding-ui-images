@@ -6,7 +6,6 @@ export const meMutation = gql`
             filename
             thumbWidth
             thumbHeight
-            orientation
         }
     }
 `;

@@ -1,6 +1,26 @@
+@import "../../styles/mixins.less";
 
 .gallery-wrapper {
     width: 100%;
+    display: inline-block;
+
+    .ReactGridGallery_tile {
+        .transition(box-shadow 0.3s);
+        border-radius: 1px;
+
+        &:hover {
+            box-shadow: 0 0 0 3px #f8c0a8;
+            // box-shadow: 0 0 0 4px #fbd6c6;
+        }
+    }
+}
+
+.download {
+    display: block;
+    text-align: center;
+    margin: 60px 0 30px;
+    text-decoration: none;
+    color: #6060d3;
 }
 
 p.laddar {

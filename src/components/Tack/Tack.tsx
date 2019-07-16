@@ -13,5 +13,9 @@ export const Tack: React.FunctionComponent = () => (
         <p>
             Här hittar ni bilder och filmer från bröllopet. Både från viseln och från kvällen.
         </p>
+
+        <span className="signature">
+            Eric &#91;Malin
+        </span>
     </div>
 )
