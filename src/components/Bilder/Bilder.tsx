@@ -19,8 +19,8 @@ export class Bilder extends React.Component {
 
                     if (data) {
                         images = data.images.map(({ filename, thumbWidth, thumbHeight }) => ({
-                            src: `/static/images/${filename}?token=${localStorage.getItem('token')}`,
-                            thumbnail: `/static/images/thumbs/${filename}?token=${localStorage.getItem('token')}`,
+                            src: `/static/images/${filename}?jwt=${localStorage.getItem('token')}`,
+                            thumbnail: `/static/images/thumbs/${filename}?jwt=${localStorage.getItem('token')}`,
                             thumbnailWidth: thumbWidth,
                             thumbnailHeight: thumbHeight,
                         }));
@@ -35,7 +35,7 @@ export class Bilder extends React.Component {
                                          rowHeight={300}
                                          />
                             </div>
-                            <a className="download" download href={`/static/other/bilder.zip?token=${localStorage.getItem('token')}`}>Klicka här för att ladda ner alla bilder</a>
+                            <a className="download" download href={`/static/other/bilder.zip?jwt=${localStorage.getItem('token')}`}>Klicka här för att ladda ner alla bilder</a>
                         </>
                     )
                 }}
