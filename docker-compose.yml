@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-    wedding-ui:
-        container_name: wedding-ui
+    wedding-ui-images:
+        container_name: wedding-ui-images
         build: ./
         ports:
           - 8095:80
