@@ -8,7 +8,7 @@ const config = {
     entry: './src/index.tsx',
     mode: 'development',
     output: {
-        filename: '[name].bundle.js',
+        filename: '[name].[hash].bundle.js',
         path: path.resolve(__dirname, 'public'),
     },
     devtool: 'inline-source-map',
