@@ -21,6 +21,7 @@ FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
 
 COPY --from=builder /app/nginx/default.conf /etc/nginx/conf.d/
+COPY --from=builder /app/nginx/nginx.conf /etc/nginx/nginx.conf
 
 ## From 'builder' copy website to default nginx public folder
 COPY --from=builder /app/public /usr/share/nginx/html
