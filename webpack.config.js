@@ -1,12 +1,14 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
-// const ENV = process.env.npm_lifecycle_event;
-// const isHot = ENV === 'build:dev';
+const ENV = process.env.npm_lifecycle_event;
+const isHot = ENV === 'dev';
+const isProd = !isHot;
 
 const config = {
     entry: './src/index.tsx',
-    mode: 'development',
+    mode: isProd ? 'production' : 'development',
     output: {
         filename: '[name].[hash].bundle.js',
         path: path.resolve(__dirname, 'public'),
@@ -64,6 +66,15 @@ const config = {
             }
         ],
     },
+    optimization: isProd ? {
+        minimizer: [
+            new UglifyJsPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: true
+            })
+        ],
+    } : {},
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',
@@ -72,19 +83,12 @@ const config = {
     ],
     devServer: {
         proxy: {
-          '/graphql': 'http://localhost:4000',
-          '/static': 'http://localhost:4000'
+            '/graphql': 'http://localhost:4000',
+            '/static': 'http://localhost:4000'
         },
         publicPath: '/',
         historyApiFallback: true,
-      }
+    }
 };
-
-// if (isHot) {
-//     config.plugins.push(
-
-//     )
-// }
-
 
 module.exports = config;
