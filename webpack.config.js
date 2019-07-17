@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 const { CheckerPlugin } = require('awesome-typescript-loader');
 
 const ENV = process.env.npm_lifecycle_event;
@@ -110,5 +111,17 @@ const config = {
         historyApiFallback: true,
     }
 };
+
+if (isProd) {
+    config.plugins.push(
+        new CompressionPlugin({
+            test: /\.(js|woff|woff2|ttf|eot|svg|css)$/,
+            filename: '[path].gz',
+            algorithm: 'gzip',
+            threshold: 10240,
+            minRatio: 0.8
+        })
+    );
+}
 
 module.exports = config;
