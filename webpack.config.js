@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const { CheckerPlugin } = require('awesome-typescript-loader');
 
 const ENV = process.env.npm_lifecycle_event;
 const isHot = ENV === 'dev';
@@ -10,9 +11,11 @@ const config = {
     entry: './src/index.tsx',
     mode: isProd ? 'production' : 'development',
     output: {
-        filename: '[name].[hash].bundle.js',
         path: path.resolve(__dirname, 'public'),
+        filename: isProd ? '[name].[chunkhash].js' : '[name].js',
+        chunkFilename: isProd ? '[name].[chunkhash].js' : '[name].js',
     },
+    bail: isProd,
     devtool: 'inline-source-map',
     resolve: {
         extensions: ['.mjs', '.js', '.json', '.ts', '.tsx'], // .mjs fixes https://github.com/graphql/graphql-js/issues/1272
@@ -22,6 +25,7 @@ const config = {
             {
                 test: /\.(ts|tsx)$/,
                 loader: 'awesome-typescript-loader',
+                exclude: [ /node_modules/ ]
             },
             {
                 test: /\.(less|css)$/,
@@ -66,19 +70,35 @@ const config = {
             }
         ],
     },
-    optimization: isProd ? {
-        minimizer: [
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendor',
+                    chunks: 'all'
+                }
+            }
+        },
+        minimizer: isProd ? [
             new UglifyJsPlugin({
                 cache: true,
                 parallel: true,
                 sourceMap: true
             })
-        ],
-    } : {},
+        ] : [],
+    } ,
     plugins: [
+        new CheckerPlugin(),
         new HtmlWebpackPlugin({
+            filename: 'index.html',
             template: './src/index.html',
             favicon: './assets/favicon.ico',
+            inject: true,
+            minify: {
+                collapseWhitespace: true,
+                removeComments: true
+            }
         })
     ],
     devServer: {
