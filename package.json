@@ -48,6 +48,7 @@
     "react": "16.8.6",
     "react-apollo": "^2.5.8",
     "react-dom": "^16.8.6",
-    "react-grid-gallery": "0.5.5"
+    "react-grid-gallery": "0.5.5",
+    "react-lazyload": "^2.6.2"
   }
 }

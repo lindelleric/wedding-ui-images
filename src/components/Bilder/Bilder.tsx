@@ -3,6 +3,7 @@ import React from 'react';
 import Gallery from 'react-grid-gallery';
 
 import { Images } from './../../generated/graphql';
+import LazyLoad from 'react-lazyload';
 
 import './Bilder.less';
 
@@ -30,6 +31,7 @@ export class Bilder extends React.Component {
                         <>
                             <div className="gallery-wrapper">
                                 <Gallery images={images}
+                                         thumbnailImageComponent={ImageComponent}
                                          enableImageSelection={false}
                                          backdropClosesModal={true}
                                          rowHeight={300}
@@ -42,4 +44,17 @@ export class Bilder extends React.Component {
             </Images.Component>
         )
     }
+}
+
+
+class ImageComponent extends React.Component<any, any> {
+    constructor(props) {
+        super(props);
+    }
+
+    public render = () => (
+        <LazyLoad offset={100} once="true">
+            <img {...this.props.imageProps} />
+        </LazyLoad>
+    )
 }
