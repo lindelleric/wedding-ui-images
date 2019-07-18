@@ -53,7 +53,7 @@ class ImageComponent extends React.Component<any, any> {
     }
 
     public render = () => (
-        <LazyLoad offset={100} once="true">
+        <LazyLoad offset={350} once="true">
             <img {...this.props.imageProps} />
         </LazyLoad>
     )
