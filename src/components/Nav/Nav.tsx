@@ -46,10 +46,17 @@ export class Nav extends React.Component<Props, State> {
         });
     }
 
+    private closeMenu = () => {
+        this.setState({
+            isOpen: false
+        });
+    }
+
     private stateMap = {
         bilder: 'Bilder',
         filmer: 'Filmer',
-        admin: 'Admin'
+        admin: 'Admin',
+        tack: 'Tack'
     };
 
     public render() {
@@ -64,21 +71,21 @@ export class Nav extends React.Component<Props, State> {
                         <li>
                             <UISrefActive class="active">
                                 <UISref to="tack">
-                                    <a onClick={this.toggleMenu}>Tack</a>
+                                    <a onClick={this.closeMenu}>Tack</a>
                                 </UISref>
                             </UISrefActive>
                         </li>
                         <li>
                             <UISrefActive class="active">
                                 <UISref to="bilder">
-                                    <a onClick={this.toggleMenu}>Bilder</a>
+                                    <a onClick={this.closeMenu}>Bilder</a>
                                 </UISref>
                             </UISrefActive>
                         </li>
                         <li>
                             <UISrefActive class="active">
                                 <UISref to="filmer">
-                                    <a onClick={this.toggleMenu}>Filmer</a>
+                                    <a onClick={this.closeMenu}>Filmer</a>
                                 </UISref>
                             </UISrefActive>
                         </li>
@@ -87,7 +94,7 @@ export class Nav extends React.Component<Props, State> {
                                 <li>
                                     <UISrefActive class="active">
                                         <UISref to="admin">
-                                            <a onClick={this.toggleMenu}>Admin</a>
+                                            <a onClick={this.closeMenu}>Admin</a>
                                         </UISref>
                                     </UISrefActive>
                                 </li>

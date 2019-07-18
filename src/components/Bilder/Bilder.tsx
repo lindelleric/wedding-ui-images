@@ -28,7 +28,7 @@ export class Bilder extends React.Component {
                     }
 
                     return (
-                        <>
+                        <div className="bilder-container">
                             <div className="gallery-wrapper">
                                 <Gallery images={images}
                                          thumbnailImageComponent={ImageComponent}
@@ -38,7 +38,7 @@ export class Bilder extends React.Component {
                                          />
                             </div>
                             <a className="download" download href={`/static/other/bilder.zip?jwt=${localStorage.getItem('token')}`}>Klicka här för att ladda ner alla bilder</a>
-                        </>
+                        </div>
                     )
                 }}
             </Images.Component>
@@ -53,7 +53,7 @@ class ImageComponent extends React.Component<any, any> {
     }
 
     public render = () => (
-        <LazyLoad offset={350} once="true">
+        <LazyLoad offset={350} once>
             <img {...this.props.imageProps} />
         </LazyLoad>
     )
