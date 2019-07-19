@@ -12,7 +12,7 @@ COPY yarn.lock .
 RUN yarn
 
 COPY . .
-RUN npm run build
+RUN yarn build
 
 
 FROM nginx:alpine
