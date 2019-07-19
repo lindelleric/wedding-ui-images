@@ -8,6 +8,7 @@ export class Filmer extends React.Component {
         return (
             <div className="film-wrapper">
                 <video src={`/static/videos/vigsel.mp4?jwt=${token}`} className="blocked" controls poster={`/static/video-thumbs/vigsel.png?jwt=${token}`} preload="none"></video>
+                <video src={`/static/videos/vigsel-compress.mp4?jwt=${token}`} className="blocked" controls poster={`/static/video-thumbs/vigsel.png?jwt=${token}`} preload="none"></video>
                 <video src={`/static/videos/leif.mp4?jwt=${token}`} className="blocked" controls poster={`/static/video-thumbs/leif.png?jwt=${token}`} preload="none"></video>
                 <video src={`/static/videos/brodersang.mov?jwt=${token}`} className="blocked" controls poster={`/static/video-thumbs/brodersang.png?jwt=${token}`} preload="none"></video>
 
