@@ -9,7 +9,7 @@ export class Filmer extends React.Component {
             <div className="film-wrapper">
                 <video src={`/static/videos/vigsel.mp4?jwt=${token}`} className="blocked" controls poster={`/static/video-thumbs/vigsel.png?jwt=${token}`} preload="none"></video>
                 <video src={`/static/videos/leif.mp4?jwt=${token}`} className="blocked" controls poster={`/static/video-thumbs/leif.png?jwt=${token}`} preload="none"></video>
-                <video src={`/static/videos/brodersang.mov?jwt=${token}`} className="blocked" controls poster={`/static/video-thumbs/brodersang.png?jwt=${token}`} preload="none"></video>
+                <video src={`/static/videos/brodersang.mp4?jwt=${token}`} className="blocked" controls poster={`/static/video-thumbs/brodersang.png?jwt=${token}`} preload="none"></video>
 
                 <video src={`/static/videos/bruddans.mp4?jwt=${token}`} height="600" width="auto" controls poster={`/static/video-thumbs/bruddans.png?jwt=${token}`} preload="none"></video>
                 <video src={`/static/videos/dans1.mp4?jwt=${token}`} height="600" width="auto" controls poster={`/static/video-thumbs/dans1.png?jwt=${token}`} preload="none"></video>
